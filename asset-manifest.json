@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/brownian-bridge/static/css/main.cf99354c.chunk.css",
-    "main.js": "/brownian-bridge/static/js/main.f9d9d288.chunk.js",
-    "main.js.map": "/brownian-bridge/static/js/main.f9d9d288.chunk.js.map",
+    "main.js": "/brownian-bridge/static/js/main.c9f4d8e0.chunk.js",
+    "main.js.map": "/brownian-bridge/static/js/main.c9f4d8e0.chunk.js.map",
     "runtime-main.js": "/brownian-bridge/static/js/runtime-main.fbef595d.js",
     "runtime-main.js.map": "/brownian-bridge/static/js/runtime-main.fbef595d.js.map",
     "static/css/2.13642c5f.chunk.css": "/brownian-bridge/static/css/2.13642c5f.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.13642c5f.chunk.css",
     "static/js/2.59b268af.chunk.js",
     "static/css/main.cf99354c.chunk.css",
-    "static/js/main.f9d9d288.chunk.js"
+    "static/js/main.c9f4d8e0.chunk.js"
   ]
 }
