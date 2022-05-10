@@ -55,7 +55,6 @@ export const Charts: FC<Props> = ({ data }) => {
           <VictoryBrushContainer
           width={900}
             height={160}
-            brushDimension="x"
             brushDomain={zoomDomain}
             onBrushDomainChange={handleZoom}
           />
