@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/brownian-bridge/static/css/main.cf99354c.chunk.css",
+    "main.js": "/brownian-bridge/static/js/main.f9d9d288.chunk.js",
+    "main.js.map": "/brownian-bridge/static/js/main.f9d9d288.chunk.js.map",
+    "runtime-main.js": "/brownian-bridge/static/js/runtime-main.fbef595d.js",
+    "runtime-main.js.map": "/brownian-bridge/static/js/runtime-main.fbef595d.js.map",
+    "static/css/2.13642c5f.chunk.css": "/brownian-bridge/static/css/2.13642c5f.chunk.css",
+    "static/js/2.59b268af.chunk.js": "/brownian-bridge/static/js/2.59b268af.chunk.js",
+    "static/js/2.59b268af.chunk.js.map": "/brownian-bridge/static/js/2.59b268af.chunk.js.map",
+    "index.html": "/brownian-bridge/index.html",
+    "static/css/2.13642c5f.chunk.css.map": "/brownian-bridge/static/css/2.13642c5f.chunk.css.map",
+    "static/css/main.cf99354c.chunk.css.map": "/brownian-bridge/static/css/main.cf99354c.chunk.css.map",
+    "static/js/2.59b268af.chunk.js.LICENSE.txt": "/brownian-bridge/static/js/2.59b268af.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/brownian-bridge/static/media/logo-dark.0786cef2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fbef595d.js",
+    "static/css/2.13642c5f.chunk.css",
+    "static/js/2.59b268af.chunk.js",
+    "static/css/main.cf99354c.chunk.css",
+    "static/js/main.f9d9d288.chunk.js"
+  ]
+}
