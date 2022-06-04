@@ -1,4 +1,5 @@
-export const randomNormal = (mu = 0, sigma = 1): number => {
+/**  Formula Normal = mu + sigma * randomValue */
+export const randomNormal = (): number => {
   let x: number | null = null;
   let r: number | null = null;
   let y: number | null = null;
@@ -15,5 +16,5 @@ export const randomNormal = (mu = 0, sigma = 1): number => {
     r = x * x + y * y;
   } while (!r || r > 1);
 
-  return mu + sigma * y * Math.sqrt(-2 * Math.log(r!) / r!);
+  return y * Math.sqrt(-2 * Math.log(r!) / r!)
 }

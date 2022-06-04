@@ -1,78 +1,39 @@
-import { useState, FC } from 'react';
-import {
-  VictoryAxis,
-  VictoryBrushContainer,
-  VictoryChart,
-  VictoryLine,
-  VictoryZoomContainer,
-  VictoryZoomContainerProps
-} from 'victory';
-
-import { DataBringe } from '../../type';
+import { Layout, Slider, Typography } from 'antd';
+import { forwardRef, memo } from 'react';
+import { DataBringe, Margin } from '../../type';
+import { ChartsControllers } from '../ChartsControllers';
 
 interface Props {
-  data: DataBringe[]
+  setY1: (value: number) => void;
+  setY2: (value: number) => void;
+  height: number;
+  width: number;
+  margin: Margin;
+  y1: number;
+  y2: number;
+  data: DataBringe | null;
 }
 
-export const Charts: FC<Props> = ({ data }) => {
-  const [zoomDomain, setZoomDomain] = useState<VictoryZoomContainerProps['zoomDomain']>({ x: [0, 1] })
 
-  const handleZoom = (domain: VictoryZoomContainerProps['zoomDomain']) => {
-    setZoomDomain(domain);
-  };
+const Component = forwardRef<SVGSVGElement, Props>(({ setY1, setY2, height, width, y1, y2, margin }, ref) => {
 
   return (
-    <>
-      <VictoryChart
-      width={900}
-      height={350}
-        containerComponent={
-          <VictoryZoomContainer
-            width={900}
-            height={350}
-            zoomDomain={zoomDomain}
-            onZoomDomainChange={handleZoom}
-          />
-        }
-      >
-        {data.map(item => (
-          <VictoryLine
-            key={item.color}
-            style={{
-              data: { stroke: item.color }
-            }}
-            data={item.bridge}
-            x={0}
-            y={1}
-        />
-        ))}
-      </VictoryChart>
-      <VictoryChart
-        padding={{ top: 10, left: 50, right: 50, bottom: 20 }}
-        height={150}
-        width={900}
-        containerComponent={
-          <VictoryBrushContainer
-          width={900}
-            height={160}
-            brushDomain={zoomDomain}
-            onBrushDomainChange={handleZoom}
-          />
-        }
-      >
-        <VictoryAxis />
-        {data.map(item => (
-          <VictoryLine
-            key={item.color}
-            style={{
-              data: { stroke: item.color }
-            }}
-            data={item.bridge}
-            x={0}
-            y={1}
-        />
-        ))}
-      </VictoryChart>
-    </>
+    <Layout className="site-layout">
+      <Layout.Header className="site-layout-background">
+        <Typography.Title level={2} style={{ marginBottom: 0 }} >
+          Brownian bridge
+        </Typography.Title>
+      </Layout.Header>
+      <Layout.Content style={{ margin: '16px' }}>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+            <ChartsControllers setY1={setY1} setY2={setY2} height={height} width={width} y1={y1} y2={y2} margin={margin}>
+            <svg ref={ref} />
+            </ChartsControllers>
+        </div>
+      </Layout.Content>
+      <Layout.Footer style={{ textAlign: 'center' }}>©2022 Created by Modsen</Layout.Footer>
+    </Layout>
   );
-}
+})
+
+export const Charts = memo(Component);

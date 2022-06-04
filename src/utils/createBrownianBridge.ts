@@ -1,34 +1,46 @@
-import numjs from 'numjs';
-
 import { randomNormal } from './randomNormal';
+import { DataBringe, Point } from '../type';
 
+export const createBrownianBridge = (amountPoints: number, sigma: number, y1 = 0, y2 = 0, mu = 0,): DataBringe => {
+  const m: number[] = [0];
+  const dt = 1.0 / (amountPoints)
+  // Set first element
+  const points: Point[] = [{ x: 0, y: y1, randomValue: 0 }]
 
-export const createBrownianBridge = (amountPoints: number, sigma: number): number[][] => {
-  const dt = 1.0 / ( amountPoints - 1 )
-  const dt_sqrt = Math.sqrt(dt)
+  for (let index = 0; index < amountPoints - 1; index++) {
+    const t = index * dt
+    m.push(y2 * t)
+    const randomValue = randomNormal()
 
-  const NdArray = numjs.empty([1, amountPoints])
+    const xi = (mu + sigma * randomValue) * Math.sqrt(dt)
+    const h = points[index].y * (1 - dt / (1 - t)) + xi
 
-  // Set first element to 0
-  NdArray.set(0,0,0)
-
-  for (let point = 0; point <= amountPoints - 2; point++) {
-      const t = point * dt
-      const xi = randomNormal(0, sigma) * dt_sqrt
-      const h = NdArray.get(0, point) * (1 - dt / (1 - t)) + xi
-      NdArray.set(0, point + 1, h)
+    points[index + 1] = {
+      x: (1 / amountPoints) * (index + 1),
+      y: h,
+      randomValue,
+    }
   }
 
-  // Set last element to 0
-  NdArray.set(0, amountPoints - 1, 0)
+  // Set last element
+  points[amountPoints] = {
+    x: 1,
+    y: y2,
+    randomValue: 0,
+  }
 
-  return (NdArray.tolist()[0] as unknown as number[])
-    .reduce((arr, item, index) => {
-      const y = (1 / NdArray.size) * index
+  points.forEach((item, index) => {
+    points[index] = {
+      ...item,
+      y: (index === points.length - 1) ? item.y : (item.y + m[index])
+    }
+  })
 
-      return [
-        ...arr,
-        [y, item]
-      ]
-    }, [] as number[][])
+  return {
+    id: Math.random(),
+    m,
+    points,
+    mu: 0,
+    sigma: sigma,
+  }
 }
