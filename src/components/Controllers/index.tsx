@@ -52,7 +52,7 @@ const Component: FC<Props> = ({ calculateBridge, onResetData, onChangeSigma, sig
         <InputNumber
           controls={true}
           min={10}
-          max={50000}
+          max={20000}
           step="100"
           defaultValue={amountPoints}
           onChange={onChangeAmountPoints}

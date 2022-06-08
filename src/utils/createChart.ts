@@ -1,16 +1,6 @@
 import * as d3 from "d3";
 import { DataBringe, Margin, Point, ScaleType } from "../type";
-
-function debounce<T extends Function>(func: T, wait = 20) {
-    let h = 0;
-    let callable = (...args: any) => {
-        if (h) return
-
-        func(...args)
-        h = setTimeout(() => h = 0, wait) as unknown as number;
-    };
-    return <T>(<any>callable);
-}
+import { debounce } from "./debounce";
 
 export class LineChart {
     data!: DataBringe;

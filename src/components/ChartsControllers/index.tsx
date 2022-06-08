@@ -89,7 +89,7 @@ const Component: React.FC<Props> = ({ setY1, setY2, height, width, y1, y2, margi
           <span style={styleLine} />
           <SendOutlined style={styleIcon} />
         </div>
-      <div style={{ ...styleSlider, right: margin.right - 16 }}>
+      <div style={{ ...styleSlider, left: margin.left + 900 - 16 }}>
         <Slider className='chart-slider' vertical defaultValue={y2} onChange={setY2} max={2} min={-2} step={0.01} />
       </div>
       {children}
