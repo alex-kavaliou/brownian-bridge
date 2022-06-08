@@ -30,3 +30,11 @@ code {
   height: 40px;
   background: url('./logo-dark.svg') no-repeat center;
 }
+
+.chart-slider .ant-slider-track {
+  display: none;
+}
+
+.chart-slider .ant-slider-rail {
+  display: none;
+}
